@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React_Mark_1</title>
+</head>
+<body>
+    <button id="plusBtn">+</button>
+    <button id="minusBtn">-</button>
+    <span id="Indicator_1">Total Counts : 0</span>
+</body>
+<script>
+    let counter = 0;
+    const plus_button = document.getElementById("plusBtn");
+    const minus_button = document.getElementById("minusBtn");
+    const Span_Indicator_1 = document.getElementById("Indicator_1");
+
+    function handle_P_Click() {
+        counter = counter + 1;
+        Span_Indicator_1.innerText = `ToTal Counts : ${counter}`;
+    }
+
+    function handle_M_Click() {
+        if(counter <= 0){
+            counter = 0;
+            Span_Indicator_1.innerText = `Total Counts : ${counter}`;
+        }
+        else {
+            counter = counter - 1;
+           Span_Indicator_1.innerText = `Total Counts : ${counter}`;
+        }
+    }
+
+    plus_button.addEventListener("click", handle_P_Click);
+    minus_button.addEventListener("click", handle_M_Click);
+</script>
+</html>
