@@ -20,9 +20,8 @@
     function App(){
         let [counter, setCounter] = React.useState(0); //배열끼리 1대1 매치 가능
         const PClick = () => {
-            counter = counter + 1;
-            setCounter(counter);
-        }
+            setCounter((current) => current + 1);
+        };
         const MClick = () => {
             if(counter <= 0){
                 counter = 0;
@@ -31,7 +30,7 @@
                 counter = counter - 1;
                 setCounter(counter);
             }
-        }
+        };
         return (
             <div>
                 <h3>Total Clicks : {counter}</h3>
