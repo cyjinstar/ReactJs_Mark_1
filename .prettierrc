@@ -1,0 +1,6 @@
+{
+    "prettier.semi": true,
+    "prettier.javascriptEnable" : ["javascript", "javascriptreact"],
+    "prettier.printWidth" : 2,
+    "prettier.tabWidth": 2
+}

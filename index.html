@@ -1,44 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="Kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div id="root">
-
-    </div>
-</body>
-<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel">
-    const root = document.getElementById("root");
-    
-    function App(){
-        let [counter, setCounter] = React.useState(0); //배열끼리 1대1 매치 가능
-        const PClick = () => {
-            setCounter((current) => current + 1);
-        };
-        const MClick = () => {
-            if(counter <= 0){
-                counter = 0;
-            }
-            else {
-                counter = counter - 1;
-                setCounter(counter);
-            }
-        };
-        return (
-            <div>
-                <h3>Total Clicks : {counter}</h3>
-                <button onClick ={PClick}>+</button>    
-                <button onClick ={MClick}>-</button>    
-            </div>
-        );
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function App() {
+      const [minutes, setMinutes] = React.useState();
+      const onChange = (event) => {
+        setMinutes(event.target.value);
+      };
+      const reset = () => setMinutes(0);
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <div>
+            <label htmlFor="minutes">Minutes </label>
+            <input
+              value={minutes}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="hours">Hours </label>
+            <input
+              value={Math.round(minutes / 60)}
+              id="hours"
+              placeholder="Hour"
+              type="number"
+              disabled
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
+        </div>
+      );
     }
     ReactDOM.render(<App />, root);
-</script>
+  </script>
 </html>
